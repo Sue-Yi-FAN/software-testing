@@ -1,6 +1,6 @@
-# software-testing
+# Software-testing
 
-The course in Chiao Tung University, to write the test case with Xunit
+The course in Chiao Tung University, to write the test case with Xunit. We used the google test to write our test code for the simple code.
 
 ## Triangle 
 1. Boundary Test Case
