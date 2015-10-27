@@ -82,7 +82,15 @@ TEST(TriangleTypeTest, Scalene){
 	EXPECT_EQ("Scalene", TriangleType(3, 4, 5));
 	EXPECT_EQ("Scalene", TriangleType(198, 199, 200));
 }
-
+TEST(TriangleType, Equivalence_Class_Test_Case){
+	EXPECT_EQ("Not a Triangle", TriangleType(-1, 5, 5));
+	EXPECT_EQ("Not a Triangle", TriangleType(5, -1, 5));
+	EXPECT_EQ("Not a Triangle", TriangleType(5, 5, -1));
+	EXPECT_EQ("Not a Triangle", TriangleType(-1, -1, 5));
+	EXPECT_EQ("Not a Triangle", TriangleType(-1, 5, -1));
+	EXPECT_EQ("Not a Triangle", TriangleType(-1, -1, 5));
+	EXPECT_EQ("Not a Triangle", TriangleType(-1, -1, -1));
+}
 int main(int argc,  char **argv) {
   ::testing::InitGoogleTest(&argc,  argv);
   return RUN_ALL_TESTS();
