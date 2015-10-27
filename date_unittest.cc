@@ -9,6 +9,7 @@ string nextdate(int year,  int month,  int day){
 	int tomorrowMonth = month;
 	int tomorrowYear = year;
 	string ans = "2";
+
 	switch(month)
 	{
 		case 1: case 3: case 5: case 7: case 8: case 10:
@@ -24,7 +25,7 @@ string nextdate(int year,  int month,  int day){
 			}
 			break;
 		case 4: case 6: case 9: case 11:
-			if(day < 30){
+			if(day < 30 && day > 0){
 				tomorrowDay = day + 1;
 			}
 			else if(day < 0 || day > 30){
@@ -139,6 +140,7 @@ TEST(dateTest,  ErrorCase){
 	EXPECT_EQ("Cannot have Feb 29",  nextdate(1, 2, 29));
 	EXPECT_EQ("Error month 13",  nextdate(1, 13, 1));
 }
+
 TEST(dateTest,  Decision_Table_Case){
 	EXPECT_EQ("2001/4/16",  nextdate(2001, 4, 15));
 	EXPECT_EQ("2001/5/2",  nextdate(2001, 5, 1));	
@@ -153,6 +155,13 @@ TEST(dateTest,  Decision_Table_Case){
 	EXPECT_EQ("2004/3/1",  nextdate(2004, 2, 29));	
 	EXPECT_EQ("Cannot have Feb 29",  nextdate(2001, 2, 29));	
 	EXPECT_EQ("Error day 30",  nextdate(2001, 2, 30));	
+}
+
+TEST(dataTest, Equivalence_Class_Case){
+	EXPECT_EQ("Error month -1",  nextdate(1912, -1, 15));
+	EXPECT_EQ("Error day -1",  nextdate(1912, 6, -1));
+	EXPECT_EQ("Error month -1",  nextdate(1912, -1, -1));
+
 }
 
 int main(int argc,  char **argv) {
