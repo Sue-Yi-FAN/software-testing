@@ -1,5 +1,5 @@
 
-GTEST_DIR = ..
+GTEST_DIR = ../../
 
 # Where to find user code.
 USER_DIR = .
