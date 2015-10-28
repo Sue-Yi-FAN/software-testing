@@ -4,7 +4,8 @@
 
 using namespace std;
 bool isATriangle(int a,  int b,  int c){
-	if ((a < b + c) && (b < a + c) && (c < a +b) && (a > 0) && (b>0) && (c >0))
+	if ((a < b + c) && (b < a + c) && (c < a +b) 
+		&& (a > 0) && (b>0) && (c >0)) 
 		return true;
 	return false;
 }
@@ -18,9 +19,12 @@ if(isATriangle(a,  b,  c)){
     else 
     	return "Isosceles";
  }
- else
- 	return "Not a Triangle";
-
+ else{
+ 	if (a > 200 || b > 200 || c > 200)
+		return "out of permitted range";
+	else 
+ 		return "Not a Triangle";
+	}
 }
 
 TEST(isTriangleTest,  Positive){
@@ -90,6 +94,10 @@ TEST(TriangleType, Equivalence_Class_Test_Case){
 	EXPECT_EQ("Not a Triangle", TriangleType(-1, 5, -1));
 	EXPECT_EQ("Not a Triangle", TriangleType(-1, -1, 5));
 	EXPECT_EQ("Not a Triangle", TriangleType(-1, -1, -1));
+	EXPECT_EQ("out of permitted range", TriangleType(5, 5, 201));
+	EXPECT_EQ("out of permitted range", TriangleType(5, 201, 5));
+	EXPECT_EQ("out of permitted range", TriangleType(201, 5, 5));
+
 }
 int main(int argc,  char **argv) {
   ::testing::InitGoogleTest(&argc,  argv);
