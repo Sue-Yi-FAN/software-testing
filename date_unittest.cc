@@ -9,74 +9,77 @@ string nextdate(int year,  int month,  int day){
 	int tomorrowMonth = month;
 	int tomorrowYear = year;
 	string ans = "2";
-
-	switch(month)
-	{
-		case 1: case 3: case 5: case 7: case 8: case 10:
-			if(day < 31 && day > 0){
-				tomorrowDay = day + 1;
-			}
-			else if(day < 0 || day > 31){
-				return "Error day " + to_string(day);
-			}
-			else{
-				tomorrowDay = 1;
-				tomorrowMonth = month + 1;
-			}
-			break;
-		case 4: case 6: case 9: case 11:
-			if(day < 30 && day > 0){
-				tomorrowDay = day + 1;
-			}
-			else if(day < 0 || day > 30){
-				return "Error day " + to_string(day);
-			}
-			else{
-				tomorrowDay = 1 ;
-				tomorrowMonth = month + 1;
-			}
-			break; 
-		case 2:
-			if(day < 28 && day > 0){
-				tomorrowDay = day + 1;
-			}
-			else if(day == 28){
-				if(year%400==0||(year%4==0&&year%100!=0)){
-					tomorrowDay =day + 1;
+	if(year < 1812 || year > 2012)
+		return "Out of year range 1812-2012";
+	else{
+		switch(month)
+		{
+			case 1: case 3: case 5: case 7: case 8: case 10:
+				if(day < 31 && day > 0){
+					tomorrowDay = day + 1;
+				}
+				else if(day < 0 || day > 31){
+					return "Error day " + to_string(day);
 				}
 				else{
 					tomorrowDay = 1;
-					tomorrowMonth += 1;
+					tomorrowMonth = month + 1;
 				}
-			}
-			else if(day == 29){
-				if(year%400==0||(year%4==0&&year%100!=0)){
-					tomorrowDay = 1;
-					tomorrowMonth = 3;
+				break;
+			case 4: case 6: case 9: case 11:
+				if(day < 30 && day > 0){
+					tomorrowDay = day + 1;
+				}
+				else if(day < 0 || day > 30){
+					return "Error day " + to_string(day);
 				}
 				else{
-				return "Cannot have Feb " + to_string(day);
+					tomorrowDay = 1 ;
+					tomorrowMonth = month + 1;
 				}
-			}
-			else{
-				return "Error day " + to_string(day);
-			}
-			break;
-		case 12:
-			if(day < 31){
-				tomorrowDay = day + 1;
-			}
-			else if(day < 0 || day > 31){
-				return "Error day " + to_string(day);
-			}
-			else{
-				tomorrowDay = 1;
-				tomorrowMonth = 1;
-				tomorrowYear += 1;
-			}
-			break;
-		default:
-			return "Error month " + to_string(month);
+				break; 
+			case 2:
+				if(day < 28 && day > 0){
+					tomorrowDay = day + 1;
+				}
+				else if(day == 28){
+					if(year%400==0||(year%4==0&&year%100!=0)){
+						tomorrowDay =day + 1;
+					}
+					else{
+						tomorrowDay = 1;
+						tomorrowMonth += 1;
+					}
+				}
+				else if(day == 29){
+					if(year%400==0||(year%4==0&&year%100!=0)){
+						tomorrowDay = 1;
+						tomorrowMonth = 3;
+					}
+					else{
+					return "Cannot have Feb " + to_string(day);
+					}
+				}
+				else{
+					return "Error day " + to_string(day);
+				}
+				break;
+			case 12:
+				if(day < 31){
+					tomorrowDay = day + 1;
+				}
+				else if(day < 0 || day > 31){
+					return "Error day " + to_string(day);
+				}
+				else{
+					tomorrowDay = 1;
+					tomorrowMonth = 1;
+					tomorrowYear += 1;
+				}
+				break;
+			default:
+				return "Error month " + to_string(month);
+		}
 	}
 	ans =to_string(tomorrowYear)+'/'+
 	to_string(tomorrowMonth)+'/'+
@@ -132,15 +135,9 @@ TEST(dateTest,  leapYearCase){
 	EXPECT_EQ("2011/3/1",  nextdate(2011, 2, 28));	
 	EXPECT_EQ("1996/3/1",  nextdate(1996, 2, 29));	
 	EXPECT_EQ("1996/2/29",  nextdate(1996, 2, 28));	
-	EXPECT_EQ("2100/3/1",  nextdate(2100, 2, 28));	
-	EXPECT_EQ("Cannot have Feb 29",  nextdate(2100, 2, 29));	
+	EXPECT_EQ("Out of year range 1812-2012",  nextdate(2100, 2, 28));	
+	EXPECT_EQ("Cannot have Feb 29",  nextdate(2001, 2, 29));	
 }
-
-TEST(dateTest,  ErrorCase){
-	EXPECT_EQ("Cannot have Feb 29",  nextdate(1, 2, 29));
-	EXPECT_EQ("Error month 13",  nextdate(1, 13, 1));
-}
-
 TEST(dateTest,  Decision_Table_Case){
 	EXPECT_EQ("2001/4/16",  nextdate(2001, 4, 15));
 	EXPECT_EQ("2001/5/2",  nextdate(2001, 5, 1));	
@@ -161,6 +158,10 @@ TEST(dataTest, Equivalence_Class_Case){
 	EXPECT_EQ("Error month -1",  nextdate(1912, -1, 15));
 	EXPECT_EQ("Error day -1",  nextdate(1912, 6, -1));
 	EXPECT_EQ("Error month -1",  nextdate(1912, -1, -1));
+	EXPECT_EQ("Error month 13",  nextdate(1912, 13, 1));
+	EXPECT_EQ("Error day 32",  nextdate(1912, 1, 32));
+	EXPECT_EQ("Out of year range 1812-2012",  nextdate(1811, 1, 1));
+	EXPECT_EQ("Out of year range 1812-2012",  nextdate(2013, 1, 1));
 
 }
 
