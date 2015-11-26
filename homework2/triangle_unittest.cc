@@ -1,5 +1,4 @@
-#include <limits.h>
-#include "gtest/gtest.h"
+
 #include "triangle.h"
 
 TEST(isTriangleTest,  Positive){
