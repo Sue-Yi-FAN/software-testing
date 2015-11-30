@@ -1,8 +1,8 @@
         -:    0:Source:/usr/include/c++/4.8/bits/allocator.h
         -:    0:Graph:date.gcno
         -:    0:Data:date.gcda
-        -:    0:Runs:1
-        -:    0:Programs:1
+        -:    0:Runs:3
+        -:    0:Programs:2
         -:    1:// Allocators -*- C++ -*-
         -:    2:
         -:    3:// Copyright (C) 2001-2013 Free Software Foundation, Inc.
@@ -135,8 +135,8 @@
         -:  130:
         -:  131:  template<typename _Tp>
         -:  132:    inline bool
-        5:  133:    operator==(const allocator<_Tp>&, const allocator<_Tp>&)
-        5:  134:    { return true; }
+       15:  133:    operator==(const allocator<_Tp>&, const allocator<_Tp>&)
+       15:  134:    { return true; }
         -:  135:
         -:  136:  template<typename _T1, typename _T2>
         -:  137:    inline bool

@@ -1,8 +1,8 @@
         -:    0:Source:/usr/include/c++/4.8/bits/basic_string.h
         -:    0:Graph:date.gcno
         -:    0:Data:date.gcda
-        -:    0:Runs:1
-        -:    0:Programs:1
+        -:    0:Runs:3
+        -:    0:Programs:2
         -:    1:// Components for manipulating sequences of characters -*- C++ -*-
         -:    2:
         -:    3:// Copyright (C) 1997-2013 Free Software Foundation, Inc.
@@ -1723,11 +1723,11 @@
         -: 1718:      // requires special behaviour if _InIter is an integral type
         -: 1719:      template<class _InIterator>
         -: 1720:        static _CharT*
-      150: 1721:        _S_construct_aux(_InIterator __beg, _InIterator __end,
+      451: 1721:        _S_construct_aux(_InIterator __beg, _InIterator __end,
         -: 1722:			 const _Alloc& __a, __false_type)
         -: 1723:	{
         -: 1724:          typedef typename iterator_traits<_InIterator>::iterator_category _Tag;
-      150: 1725:          return _S_construct(__beg, __end, __a, _Tag());
+      451: 1725:          return _S_construct(__beg, __end, __a, _Tag());
         -: 1726:	}
         -: 1727:
         -: 1728:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
@@ -1745,10 +1745,10 @@
         -: 1740:
         -: 1741:      template<class _InIterator>
         -: 1742:        static _CharT*
-      150: 1743:        _S_construct(_InIterator __beg, _InIterator __end, const _Alloc& __a)
+      451: 1743:        _S_construct(_InIterator __beg, _InIterator __end, const _Alloc& __a)
         -: 1744:	{
         -: 1745:	  typedef typename std::__is_integer<_InIterator>::__type _Integral;
-      150: 1746:	  return _S_construct_aux(__beg, __end, __a, _Integral());
+      451: 1746:	  return _S_construct_aux(__beg, __end, __a, _Integral());
         -: 1747:        }
         -: 1748:
         -: 1749:      // For Input Iterators, used in istreambuf_iterators, etc.
@@ -2444,21 +2444,21 @@
         -: 2439:
         -: 2440:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 2441:    inline basic_string<_CharT, _Traits, _Alloc>
-       94: 2442:    operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+      282: 2442:    operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
         -: 2443:	      basic_string<_CharT, _Traits, _Alloc>&& __rhs)
         -: 2444:    {
-       94: 2445:      const auto __size = __lhs.size() + __rhs.size();
-       94: 2446:      const bool __cond = (__size > __lhs.capacity()
-       94: 2447:			   && __size <= __rhs.capacity());
+      282: 2445:      const auto __size = __lhs.size() + __rhs.size();
+      282: 2446:      const bool __cond = (__size > __lhs.capacity()
+      282: 2447:			   && __size <= __rhs.capacity());
     #####: 2448:      return __cond ? std::move(__rhs.insert(0, __lhs))
-       94: 2449:	            : std::move(__lhs.append(__rhs));
+      282: 2449:	            : std::move(__lhs.append(__rhs));
         -: 2450:    }
         -: 2451:
         -: 2452:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 2453:    inline basic_string<_CharT, _Traits, _Alloc>
-        9: 2454:    operator+(const _CharT* __lhs,
+       28: 2454:    operator+(const _CharT* __lhs,
         -: 2455:	      basic_string<_CharT, _Traits, _Alloc>&& __rhs)
-        9: 2456:    { return std::move(__rhs.insert(0, __lhs)); }
+       28: 2456:    { return std::move(__rhs.insert(0, __lhs)); }
         -: 2457:
         -: 2458:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 2459:    inline basic_string<_CharT, _Traits, _Alloc>
@@ -2474,9 +2474,9 @@
         -: 2469:
         -: 2470:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 2471:    inline basic_string<_CharT, _Traits, _Alloc>
-       94: 2472:    operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+      282: 2472:    operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
         -: 2473:	      _CharT __rhs)
-       94: 2474:    { return std::move(__lhs.append(1, __rhs)); }
+      282: 2474:    { return std::move(__lhs.append(1, __rhs)); }
         -: 2475:#endif
         -: 2476:
         -: 2477:  // operator ==
@@ -2866,9 +2866,9 @@
         -: 2861:
         -: 2862:  // DR 1261.
         -: 2863:  inline string
-      150: 2864:  to_string(int __val)
+      451: 2864:  to_string(int __val)
         -: 2865:  { return __gnu_cxx::__to_xstring<string>(&std::vsnprintf, 4 * sizeof(int),
-      150: 2866:					   "%d", __val); }
+      451: 2866:					   "%d", __val); }
         -: 2867:
         -: 2868:  inline string
         -: 2869:  to_string(unsigned __val)

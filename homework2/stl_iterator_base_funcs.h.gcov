@@ -1,8 +1,8 @@
         -:    0:Source:/usr/include/c++/4.8/bits/stl_iterator_base_funcs.h
         -:    0:Graph:date.gcno
         -:    0:Data:date.gcda
-        -:    0:Runs:1
-        -:    0:Programs:1
+        -:    0:Runs:3
+        -:    0:Programs:2
         -:    1:// Functions used by iterators -*- C++ -*-
         -:    2:
         -:    3:// Copyright (C) 2001-2013 Free Software Foundation, Inc.
@@ -92,13 +92,13 @@
         -:   87:
         -:   88:  template<typename _RandomAccessIterator>
         -:   89:    inline typename iterator_traits<_RandomAccessIterator>::difference_type
-      200:   90:    __distance(_RandomAccessIterator __first, _RandomAccessIterator __last,
+      601:   90:    __distance(_RandomAccessIterator __first, _RandomAccessIterator __last,
         -:   91:               random_access_iterator_tag)
         -:   92:    {
         -:   93:      // concept requirements
         -:   94:      __glibcxx_function_requires(_RandomAccessIteratorConcept<
         -:   95:				  _RandomAccessIterator>)
-      200:   96:      return __last - __first;
+      601:   96:      return __last - __first;
         -:   97:    }
         -:   98:
         -:   99:  /**
@@ -116,11 +116,11 @@
         -:  111:  */
         -:  112:  template<typename _InputIterator>
         -:  113:    inline typename iterator_traits<_InputIterator>::difference_type
-      200:  114:    distance(_InputIterator __first, _InputIterator __last)
+      601:  114:    distance(_InputIterator __first, _InputIterator __last)
         -:  115:    {
         -:  116:      // concept requirements -- taken care of in __distance
         -:  117:      return std::__distance(__first, __last,
-      200:  118:			     std::__iterator_category(__first));
+      601:  118:			     std::__iterator_category(__first));
         -:  119:    }
         -:  120:
         -:  121:  template<typename _InputIterator, typename _Distance>

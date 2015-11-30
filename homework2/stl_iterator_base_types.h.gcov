@@ -1,8 +1,8 @@
         -:    0:Source:/usr/include/c++/4.8/bits/stl_iterator_base_types.h
         -:    0:Graph:date.gcno
         -:    0:Data:date.gcda
-        -:    0:Runs:1
-        -:    0:Programs:1
+        -:    0:Runs:3
+        -:    0:Programs:2
         -:    1:// Types used in iterator implementation -*- C++ -*-
         -:    2:
         -:    3:// Copyright (C) 2001-2013 Free Software Foundation, Inc.
@@ -203,8 +203,8 @@
         -:  198:  */
         -:  199:  template<typename _Iter>
         -:  200:    inline typename iterator_traits<_Iter>::iterator_category
-      200:  201:    __iterator_category(const _Iter&)
-      200:  202:    { return typename iterator_traits<_Iter>::iterator_category(); }
+      601:  201:    __iterator_category(const _Iter&)
+      601:  202:    { return typename iterator_traits<_Iter>::iterator_category(); }
         -:  203:
         -:  204:  //@}
         -:  205:

@@ -1,8 +1,8 @@
         -:    0:Source:/usr/include/c++/4.8/ext/string_conversions.h
         -:    0:Graph:date.gcno
         -:    0:Data:date.gcda
-        -:    0:Runs:1
-        -:    0:Programs:1
+        -:    0:Runs:3
+        -:    0:Programs:2
         -:    1:// String Conversions -*- C++ -*-
         -:    2:
         -:    3:// Copyright (C) 2008-2013 Free Software Foundation, Inc.
@@ -85,23 +85,23 @@
         -:   80:  // Helper for the to_string / to_wstring functions.
         -:   81:  template<typename _String, typename _CharT = typename _String::value_type>
         -:   82:    _String
-      150:   83:    __to_xstring(int (*__convf) (_CharT*, std::size_t, const _CharT*,
+      451:   83:    __to_xstring(int (*__convf) (_CharT*, std::size_t, const _CharT*,
         -:   84:				 __builtin_va_list), std::size_t __n,
         -:   85:		 const _CharT* __fmt, ...)
         -:   86:    {
         -:   87:      // XXX Eventually the result will be constructed in place in
         -:   88:      // the C++0x string, likely with the help of internal hooks.
         -:   89:      _CharT* __s = static_cast<_CharT*>(__builtin_alloca(sizeof(_CharT)
-      150:   90:							  * __n));
+      451:   90:							  * __n));
         -:   91:
         -:   92:      __builtin_va_list __args;
-      150:   93:      __builtin_va_start(__args, __fmt);
+      451:   93:      __builtin_va_start(__args, __fmt);
         -:   94:
-      150:   95:      const int __len = __convf(__s, __n, __fmt, __args);
+      451:   95:      const int __len = __convf(__s, __n, __fmt, __args);
         -:   96:
-      150:   97:      __builtin_va_end(__args);
+      451:   97:      __builtin_va_end(__args);
         -:   98:
-      150:   99:      return _String(__s, __s + __len);
+      451:   99:      return _String(__s, __s + __len);
         -:  100:    }
         -:  101:
         -:  102:_GLIBCXX_END_NAMESPACE_VERSION
