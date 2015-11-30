@@ -25,7 +25,7 @@ USER_DIR = .
 CPPFLAGS += -isystem $(GTEST_DIR)/include
 
 # Flags passed to the C++ compiler.
-CXXFLAGS += -g -Wall -Wextra -pthread
+CXXFLAGS += -g  -std=c++11 -Wall -Wextra -pthread
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
@@ -83,11 +83,11 @@ triangle_unittest : triangle.o triangle_unittest.o gtest_main.a
 
 
 date.o : $(USER_DIR)/date.cc $(USER_DIR)/date.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/date.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -ftest-coverage -fprofile-arcs $(USER_DIR)/date.cc
 
 date_unittest.o : $(USER_DIR)/date_unittest.cc \
                      $(USER_DIR)/date.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/date_unittest.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -ftest-coverage -fprofile-arcs $(USER_DIR)/date_unittest.cc
 
 date_unittest : date.o date_unittest.o gtest_main.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@	
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@ -lgcov
