@@ -72,14 +72,14 @@ gtest_main.a : gtest-all.o gtest_main.o
 # function.
 
 triangle.o : $(USER_DIR)/triangle.cc $(USER_DIR)/triangle.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/triangle.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -ftest-coverage -fprofile-arcs $(USER_DIR)/triangle.cc
 
 triangle_unittest.o : $(USER_DIR)/triangle_unittest.cc \
                      $(USER_DIR)/triangle.h $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/triangle_unittest.cc
 
 triangle_unittest : triangle.o triangle_unittest.o gtest_main.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@ -lgcov
 
 
 date.o : $(USER_DIR)/date.cc $(USER_DIR)/date.h $(GTEST_HEADERS)

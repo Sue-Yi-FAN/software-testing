@@ -1,8 +1,8 @@
         -:    0:Source:/usr/include/c++/4.8/iostream
-        -:    0:Graph:date.gcno
-        -:    0:Data:date.gcda
-        -:    0:Runs:3
-        -:    0:Programs:2
+        -:    0:Graph:triangle.gcno
+        -:    0:Data:triangle.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
         -:    1:// Standard iostream objects -*- C++ -*-
         -:    2:
         -:    3:// Copyright (C) 1997-2013 Free Software Foundation, Inc.
@@ -76,7 +76,7 @@
         -:   71:  //@}
         -:   72:
         -:   73:  // For construction of filebuffers for cout, cin, cerr, clog et. al.
-        3:   74:  static ios_base::Init __ioinit;
+        1:   74:  static ios_base::Init __ioinit;
         -:   75:
         -:   76:_GLIBCXX_END_NAMESPACE_VERSION
         -:   77:} // namespace
