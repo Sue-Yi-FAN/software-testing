@@ -19,6 +19,8 @@ GTEST_DIR = ../../../
 # Where to find user code.
 USER_DIR = .
 
+T_C0 = triangle_C0
+D_C0 = date_C0
 # Flags passed to the preprocessor.
 # Set Google Test's header directory as a system directory, such that
 # the compiler doesn't generate warnings in Google Test headers.
@@ -29,7 +31,7 @@ CXXFLAGS += -g  -std=c++11 -Wall -Wextra -pthread
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
-TESTS = triangle_unittest
+TESTS = triangle_C0
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -74,21 +76,27 @@ gtest_main.a : gtest-all.o gtest_main.o
 triangle.o : $(USER_DIR)/triangle.cc $(USER_DIR)/triangle.h $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -ftest-coverage -fprofile-arcs $(USER_DIR)/triangle.cc
 
-triangle_unittest.o : $(USER_DIR)/triangle_unittest.cc \
+triangle_C0.o : $(T_C0)/triangle_C0.cc \
                      $(USER_DIR)/triangle.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/triangle_unittest.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -ftest-coverage -fprofile-arcs  -c \
+	$(T_C0)/triangle_C0.cc -o $(T_C0)/triangle_C0.o
 
-triangle_unittest : triangle.o triangle_unittest.o gtest_main.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@ -lgcov
+triangle_C0 : triangle.o triangle_C0.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $< \
+	$(T_C0)/triangle_C0.o gtest_main.a \
+	-o $(T_C0)/triangle_C0  
 
 
 date.o : $(USER_DIR)/date.cc $(USER_DIR)/date.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -ftest-coverage -fprofile-arcs $(USER_DIR)/date.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c  \
+	$(USER_DIR)/date.cc
 
-date_unittest.o : $(USER_DIR)/date_unittest.cc \
+date_C0.o : $(D_C0)/date_C0.cc \
                      $(USER_DIR)/date.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -ftest-coverage -fprofile-arcs $(USER_DIR)/date_unittest.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c  \
+	$(D_C0)/date_C0.cc -o $(D_C0)/date_C0.o
 
 
-date_unittest : date.o date_unittest.o gtest_main.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@ -lgcov
+date_C0 : date.o date_C0.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $< $(D_C0)/date_C0.o \
+	gtest_main.a -o $(D_C0)/date_C0

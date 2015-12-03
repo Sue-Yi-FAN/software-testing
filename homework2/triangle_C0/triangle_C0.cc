@@ -1,5 +1,5 @@
 
-#include "triangle.h"
+#include "../triangle.h"
 
 TEST(isTriangleTest,  Positive){
 	EXPECT_TRUE(isATriangle(1, 2, 2));
