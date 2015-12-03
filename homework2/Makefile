@@ -87,7 +87,7 @@ date.o : $(USER_DIR)/date.cc $(USER_DIR)/date.h $(GTEST_HEADERS)
 
 date_unittest.o : $(USER_DIR)/date_unittest.cc \
                      $(USER_DIR)/date.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/date_unittest.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c  $(USER_DIR)/date_unittest.cc
 
 date_unittest : date.o date_unittest.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@	
