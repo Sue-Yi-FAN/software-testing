@@ -76,6 +76,7 @@ TEST(dataTest, Equivalence_Class_Case){
 	EXPECT_EQ("Error month -1",  nextdate(1912, -1, -1));
 	EXPECT_EQ("Error month 13",  nextdate(1912, 13, 1));
 	EXPECT_EQ("Error day 32",  nextdate(1912, 1, 32));
+	EXPECT_EQ("Error day 32", nextdate(1912, 12, 32));
 	EXPECT_EQ("Out of year range 1812-2012",  nextdate(1811, 1, 1));
 	EXPECT_EQ("Out of year range 1812-2012",  nextdate(2013, 1, 1));
 
