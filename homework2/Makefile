@@ -20,7 +20,12 @@ GTEST_DIR = ../../../
 USER_DIR = .
 
 T_C0 = triangle_C0
+T_C1 = triangle_C1
+T_C2 = triangle_C2
+
 D_C0 = date_C0
+D_C1 = date_C1
+D_C2 = date_C2
 # Flags passed to the preprocessor.
 # Set Google Test's header directory as a system directory, such that
 # the compiler doesn't generate warnings in Google Test headers.
@@ -84,8 +89,17 @@ triangle_C0.o : $(T_C0)/triangle_C0.cc \
 triangle_C0 : triangle.o triangle_C0.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $< \
 	$(T_C0)/triangle_C0.o gtest_main.a \
-	-o $(T_C0)/triangle_C0  
+	-o $(T_C0)/triangle_C0  -lgcov
 
+triangle_C1.o : $(T_C1)/triangle_C1.cc \
+                     $(USER_DIR)/triangle.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -ftest-coverage -fprofile-arcs  -c \
+	$(T_C1)/triangle_C1.cc -o $(T_C1)/triangle_C1.o
+
+triangle_C1 : triangle.o triangle_C1.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $< \
+	$(T_C1)/triangle_C1.o gtest_main.a \
+	-o $(T_C1)/triangle_C1  -lgcov
 
 date.o : $(USER_DIR)/date.cc $(USER_DIR)/date.h $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c  \
