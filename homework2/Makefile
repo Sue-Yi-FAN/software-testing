@@ -101,6 +101,16 @@ triangle_C1 : triangle.o triangle_C1.o gtest_main.a
 	$(T_C1)/triangle_C1.o gtest_main.a \
 	-o $(T_C1)/triangle_C1  -lgcov
 
+triangle_C2.o : $(T_C2)/triangle_C2.cc \
+                     $(USER_DIR)/triangle.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -ftest-coverage -fprofile-arcs  -c \
+	$(T_C2)/triangle_C2.cc -o $(T_C2)/triangle_C2.o
+
+triangle_C2 : triangle.o triangle_C2.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $< \
+	$(T_C2)/triangle_C2.o gtest_main.a \
+	-o $(T_C2)/triangle_C2  -lgcov
+
 date.o : $(USER_DIR)/date.cc $(USER_DIR)/date.h $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c  \
 	$(USER_DIR)/date.cc
