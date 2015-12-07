@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr-default.h
-        -:    0:Graph:date_C1/date_C1.gcno
-        -:    0:Data:date_C1/date_C1.gcda
+        -:    0:Graph:triangle_C1/triangle_C1.gcno
+        -:    0:Data:triangle_C1/triangle_C1.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:/* Threads compatibility routines for libgcc2 and libobjc.  */

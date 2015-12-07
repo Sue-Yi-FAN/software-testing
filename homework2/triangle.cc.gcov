@@ -1,0 +1,28 @@
+        -:    0:Source:triangle.cc
+        -:    0:Graph:triangle.gcno
+        -:    0:Data:triangle.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "triangle.h"
+        5:    2:bool isATriangle(int a,  int b,  int c){
+        5:    3:	if ((a < b + c) && (b < a + c) && (c < a +b) 
+        4:    4:		&& (a > 0) && (b>0) && (c >0)) 
+        4:    5:		return true;
+        1:    6:	return false;
+        -:    7:}
+        -:    8:
+        5:    9:string TriangleType(int a,  int b,  int c){
+        5:   10:if(isATriangle(a,  b,  c)){	
+        4:   11:	if ((a == b) && (b == c))
+        1:   12:		return "Equilateral";
+        3:   13:    else if ((a != b) && (a != c) && (b != c))
+        1:   14:		return "Scalene";
+        2:   15:    else if (a > 200 || b > 200 || c > 200)
+        1:   16:		return "out of permitted range";
+        -:   17:    else 
+        1:   18:    	return "Isosceles";
+        -:   19: 
+        -:   20: }else 
+        1:   21: 	return "Not a Triangle";
+        -:   22:	
+        3:   23:}

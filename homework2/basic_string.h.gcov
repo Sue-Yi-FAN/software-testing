@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/4.8/bits/basic_string.h
-        -:    0:Graph:date_C1/date_C1.gcno
-        -:    0:Data:date_C1/date_C1.gcda
+        -:    0:Graph:triangle_C1/triangle_C1.gcno
+        -:    0:Data:triangle_C1/triangle_C1.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// Components for manipulating sequences of characters -*- C++ -*-
@@ -2509,9 +2509,9 @@
         -: 2504:   */
         -: 2505:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 2506:    inline bool
-       22: 2507:    operator==(const _CharT* __lhs,
+        5: 2507:    operator==(const _CharT* __lhs,
         -: 2508:	       const basic_string<_CharT, _Traits, _Alloc>& __rhs)
-       22: 2509:    { return __rhs.compare(__lhs) == 0; }
+        5: 2509:    { return __rhs.compare(__lhs) == 0; }
         -: 2510:
         -: 2511:  /**
         -: 2512:   *  @brief  Test equivalence of string and C string.
