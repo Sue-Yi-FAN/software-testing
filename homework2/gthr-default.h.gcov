@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr-default.h
-        -:    0:Graph:triangle_C1/triangle_C1.gcno
-        -:    0:Data:triangle_C1/triangle_C1.gcda
+        -:    0:Graph:date_C1/date_C1.gcno
+        -:    0:Data:date_C1/date_C1.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:/* Threads compatibility routines for libgcc2 and libobjc.  */
@@ -249,7 +249,6 @@
         -:  244:#endif
         -:  245:
         -:  246:static inline int
-function _ZL18__gthread_active_pv called 0 returned 0% blocks executed 0%
     #####:  247:__gthread_active_p (void)
         -:  248:{
         -:  249:  static void *const __gthread_active_ptr

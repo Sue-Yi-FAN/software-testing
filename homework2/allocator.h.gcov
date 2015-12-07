@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/4.8/bits/allocator.h
-        -:    0:Graph:triangle_C1/triangle_C1.gcno
-        -:    0:Data:triangle_C1/triangle_C1.gcda
+        -:    0:Graph:date_C1/date_C1.gcno
+        -:    0:Data:date_C1/date_C1.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// Allocators -*- C++ -*-
@@ -135,7 +135,6 @@
         -:  130:
         -:  131:  template<typename _Tp>
         -:  132:    inline bool
-function _ZSteqIcEbRKSaIT_ES3_ called 0 returned 0% blocks executed 0%
     #####:  133:    operator==(const allocator<_Tp>&, const allocator<_Tp>&)
     #####:  134:    { return true; }
         -:  135:

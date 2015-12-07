@@ -14,7 +14,7 @@ string nextdate(int year,  int month,  int day){
 				if(day < 31 && day > 0){
 					tomorrowDay = day + 1;
 				}
-				else if(day < 0 || day > 31){
+				else if(day <= 0 || day > 31){
 					return "Error day " + to_string(day);
 				}
 				else{
@@ -26,7 +26,7 @@ string nextdate(int year,  int month,  int day){
 				if(day < 30 && day > 0){
 					tomorrowDay = day + 1;
 				}
-				else if(day < 0 || day > 30){
+				else if(day <= 0 || day > 30){
 					return "Error day " + to_string(day);
 				}
 				else{
@@ -61,10 +61,10 @@ string nextdate(int year,  int month,  int day){
 				}
 				break;
 			case 12:
-				if(day < 31){
+				if(day < 31 && day > 0){
 					tomorrowDay = day + 1;
 				}
-				else if(day < 0 || day > 31){
+				else if(day <= 0 || day > 31){
 					return "Error day " + to_string(day);
 				}
 				else{

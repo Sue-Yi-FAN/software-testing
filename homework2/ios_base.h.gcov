@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/4.8/bits/ios_base.h
-        -:    0:Graph:triangle_C1/triangle_C1.gcno
-        -:    0:Data:triangle_C1/triangle_C1.gcda
+        -:    0:Graph:date_C1/date_C1.gcno
+        -:    0:Data:date_C1/date_C1.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// Iostreams base classes -*- C++ -*-
@@ -121,9 +121,8 @@
         -:  116:  { return _Ios_Openmode(static_cast<int>(__a) & static_cast<int>(__b)); }
         -:  117:
         -:  118:  inline _GLIBCXX_CONSTEXPR _Ios_Openmode
-function _ZStorSt13_Ios_OpenmodeS_ called 57 returned 100% blocks executed 100%
-       57:  119:  operator|(_Ios_Openmode __a, _Ios_Openmode __b)
-       57:  120:  { return _Ios_Openmode(static_cast<int>(__a) | static_cast<int>(__b)); }
+       42:  119:  operator|(_Ios_Openmode __a, _Ios_Openmode __b)
+       42:  120:  { return _Ios_Openmode(static_cast<int>(__a) | static_cast<int>(__b)); }
         -:  121:
         -:  122:  inline _GLIBCXX_CONSTEXPR _Ios_Openmode
         -:  123:  operator^(_Ios_Openmode __a, _Ios_Openmode __b)
@@ -160,7 +159,6 @@ function _ZStorSt13_Ios_OpenmodeS_ called 57 returned 100% blocks executed 100%
         -:  154:  { return _Ios_Iostate(static_cast<int>(__a) & static_cast<int>(__b)); }
         -:  155:
         -:  156:  inline _GLIBCXX_CONSTEXPR _Ios_Iostate
-function _ZStorSt12_Ios_IostateS_ called 0 returned 0% blocks executed 0%
     #####:  157:  operator|(_Ios_Iostate __a, _Ios_Iostate __b)
     #####:  158:  { return _Ios_Iostate(static_cast<int>(__a) | static_cast<int>(__b)); }
         -:  159:

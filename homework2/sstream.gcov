@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/4.8/sstream
-        -:    0:Graph:triangle_C1/triangle_C1.gcno
-        -:    0:Data:triangle_C1/triangle_C1.gcda
+        -:    0:Graph:date_C1/date_C1.gcno
+        -:    0:Data:date_C1/date_C1.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// String based streams -*- C++ -*-
@@ -66,16 +66,7 @@
         -:   61:   *  output sequence can be written.
         -:   62:  */
         -:   63:  template<typename _CharT, typename _Traits, typename _Alloc>
-function _ZNSt15basic_stringbufIcSt11char_traitsIcESaIcEED0Ev called 0 returned 0% blocks executed 0%
-function _ZNSt15basic_stringbufIcSt11char_traitsIcESaIcEED2Ev called 0 returned 0% blocks executed 0%
     #####:   64:    class basic_stringbuf : public basic_streambuf<_CharT, _Traits>
-call    0 never executed
-call    1 never executed
-call    2 never executed
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-call    6 never executed
         -:   65:    {
         -:   66:    public:
         -:   67:      // Types:

@@ -1,6 +1,6 @@
         -:    0:Source:../../../include/gtest/gtest-message.h
-        -:    0:Graph:triangle_C1/triangle_C1.gcno
-        -:    0:Data:triangle_C1/triangle_C1.gcda
+        -:    0:Graph:date_C1/date_C1.gcno
+        -:    0:Data:date_C1/date_C1.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// Copyright 2005, Google Inc.
@@ -87,9 +87,7 @@
         -:   82:// latter (it causes an access violation if you do).  The Message
         -:   83:// class hides this difference by treating a NULL char pointer as
         -:   84:// "(null)".
-function _ZN7testing7MessageD2Ev called 57 returned 100% blocks executed 100%
-       57:   85:class GTEST_API_ Message {
-call    0 returned 100%
+       42:   85:class GTEST_API_ Message {
         -:   86: private:
         -:   87:  // The type of basic IO manipulators (endl, ends, and flush) for
         -:   88:  // narrow streams.

@@ -117,10 +117,30 @@ date.o : $(USER_DIR)/date.cc $(USER_DIR)/date.h $(GTEST_HEADERS)
 
 date_C0.o : $(D_C0)/date_C0.cc \
                      $(USER_DIR)/date.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c  \
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -ftest-coverage -fprofile-arcs -c  \
 	$(D_C0)/date_C0.cc -o $(D_C0)/date_C0.o
 
 
 date_C0 : date.o date_C0.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $< $(D_C0)/date_C0.o \
-	gtest_main.a -o $(D_C0)/date_C0
+	gtest_main.a -o $(D_C0)/date_C0 -lgcov
+
+date_C1.o : $(D_C1)/date_C1.cc \
+                     $(USER_DIR)/date.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -ftest-coverage -fprofile-arcs -c  \
+	$(D_C1)/date_C1.cc -o $(D_C1)/date_C1.o
+
+
+date_C1 : date.o date_C1.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $< $(D_C1)/date_C1.o \
+	gtest_main.a -o $(D_C1)/date_C1 -lgcov
+
+date_C2.o : $(D_C2)/date_C2.cc \
+                     $(USER_DIR)/date.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -ftest-coverage -fprofile-arcs -c  \
+	$(D_C2)/date_C2.cc -o $(D_C2)/date_C2.o
+
+
+date_C2 : date.o date_C2.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $< $(D_C2)/date_C2.o \
+	gtest_main.a -o $(D_C2)/date_C2 -lgcov

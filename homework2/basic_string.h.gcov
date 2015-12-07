@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/4.8/bits/basic_string.h
-        -:    0:Graph:triangle_C1/triangle_C1.gcno
-        -:    0:Data:triangle_C1/triangle_C1.gcda
+        -:    0:Graph:date_C1/date_C1.gcno
+        -:    0:Data:date_C1/date_C1.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// Components for manipulating sequences of characters -*- C++ -*-
@@ -274,9 +274,7 @@
         -:  269:      };
         -:  270:
         -:  271:      // Use empty-base optimization: http://www.cantrip.org/emptyopt.html
-function _ZNSs12_Alloc_hiderD2Ev called 0 returned 0% blocks executed 0%
     #####:  272:      struct _Alloc_hider : _Alloc
-call    0 never executed
         -:  273:      {
         -:  274:	_Alloc_hider(_CharT* __dat, const _Alloc& __a)
         -:  275:	: _Alloc(__a), _M_p(__dat) { }
@@ -1725,15 +1723,11 @@ call    0 never executed
         -: 1718:      // requires special behaviour if _InIter is an integral type
         -: 1719:      template<class _InIterator>
         -: 1720:        static _CharT*
-function _ZNSs16_S_construct_auxIPcEES0_T_S1_RKSaIcESt12__false_type called 0 returned 0% blocks executed 0%
     #####: 1721:        _S_construct_aux(_InIterator __beg, _InIterator __end,
         -: 1722:			 const _Alloc& __a, __false_type)
         -: 1723:	{
         -: 1724:          typedef typename iterator_traits<_InIterator>::iterator_category _Tag;
     #####: 1725:          return _S_construct(__beg, __end, __a, _Tag());
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
         -: 1726:	}
         -: 1727:
         -: 1728:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
@@ -1751,14 +1745,10 @@ branch  2 never executed
         -: 1740:
         -: 1741:      template<class _InIterator>
         -: 1742:        static _CharT*
-function _ZNSs12_S_constructIPcEES0_T_S1_RKSaIcE called 0 returned 0% blocks executed 0%
     #####: 1743:        _S_construct(_InIterator __beg, _InIterator __end, const _Alloc& __a)
         -: 1744:	{
         -: 1745:	  typedef typename std::__is_integer<_InIterator>::__type _Integral;
     #####: 1746:	  return _S_construct_aux(__beg, __end, __a, _Integral());
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
         -: 1747:        }
         -: 1748:
         -: 1749:      // For Input Iterators, used in istreambuf_iterators, etc.
@@ -2519,11 +2509,9 @@ branch  2 never executed
         -: 2504:   */
         -: 2505:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 2506:    inline bool
-function _ZSteqIcSt11char_traitsIcESaIcEEbPKT_RKSbIS3_T0_T1_E called 31 returned 100% blocks executed 100%
-       31: 2507:    operator==(const _CharT* __lhs,
+       22: 2507:    operator==(const _CharT* __lhs,
         -: 2508:	       const basic_string<_CharT, _Traits, _Alloc>& __rhs)
-       31: 2509:    { return __rhs.compare(__lhs) == 0; }
-call    0 returned 100%
+       22: 2509:    { return __rhs.compare(__lhs) == 0; }
         -: 2510:
         -: 2511:  /**
         -: 2512:   *  @brief  Test equivalence of string and C string.

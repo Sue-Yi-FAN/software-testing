@@ -12,13 +12,12 @@ if(isATriangle(a,  b,  c)){
 		return "Equilateral";
     else if ((a != b) && (a != c) && (b != c))
 		return "Scalene";
+    else if (a > 200 || b > 200 || c > 200)
+		return "out of permitted range";
     else 
     	return "Isosceles";
- }
- else{
- 	if (a > 200 || b > 200 || c > 200)
-		return "out of permitted range";
-	else 
- 		return "Not a Triangle";
-	}
+ 
+ }else 
+ 	return "Not a Triangle";
+	
 }

@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/4.8/bits/char_traits.h
-        -:    0:Graph:triangle_C1/triangle_C1.gcno
-        -:    0:Data:triangle_C1/triangle_C1.gcda
+        -:    0:Graph:date_C1/date_C1.gcno
+        -:    0:Data:date_C1/date_C1.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// Character Traits for use by standard string and iostream -*- C++ -*-
@@ -244,7 +244,6 @@
         -:  239:      typedef mbstate_t         state_type;
         -:  240:
         -:  241:      static void
-function _ZNSt11char_traitsIcE6assignERcRKc called 0 returned 0% blocks executed 0%
     #####:  242:      assign(char_type& __c1, const char_type& __c2) _GLIBCXX_NOEXCEPT
     #####:  243:      { __c1 = __c2; }
         -:  244:
@@ -261,7 +260,6 @@ function _ZNSt11char_traitsIcE6assignERcRKc called 0 returned 0% blocks executed
         -:  255:      { return __builtin_memcmp(__s1, __s2, __n); }
         -:  256:
         -:  257:      static size_t
-function _ZNSt11char_traitsIcE6lengthEPKc called 0 returned 0% blocks executed 0%
     #####:  258:      length(const char_type* __s)
     #####:  259:      { return __builtin_strlen(__s); }
         -:  260:
@@ -274,7 +272,6 @@ function _ZNSt11char_traitsIcE6lengthEPKc called 0 returned 0% blocks executed 0
         -:  267:      { return static_cast<char_type*>(__builtin_memmove(__s1, __s2, __n)); }
         -:  268:
         -:  269:      static char_type*
-function _ZNSt11char_traitsIcE4copyEPcPKcm called 0 returned 0% blocks executed 0%
     #####:  270:      copy(char_type* __s1, const char_type* __s2, size_t __n)
     #####:  271:      { return static_cast<char_type*>(__builtin_memcpy(__s1, __s2, __n)); }
         -:  272:
