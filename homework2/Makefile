@@ -122,7 +122,7 @@ triangle_Cmcdc : triangle.o triangle_Cmcdc.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $< \
 	$(T_Cmcdc)/triangle_Cmcdc.o gtest_main.a \
 	-o $(T_Cmcdc)/triangle_Cmcdc  -lgcov
-	
+
 date.o : $(USER_DIR)/date.cc $(USER_DIR)/date.h $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -ftest-coverage -fprofile-arcs -c  \
 	$(USER_DIR)/date.cc
@@ -156,7 +156,7 @@ date_C2 : date.o date_C2.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $< $(D_C2)/date_C2.o \
 	gtest_main.a -o $(D_C2)/date_C2 -lgcov
 
-date_Cmcdc.o : $(D_C2)/date_C2.cc \
+date_Cmcdc.o : $(D_Cmcdc)/date_Cmcdc.cc \
     $(USER_DIR)/date.h $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -ftest-coverage -fprofile-arcs -c  \
 	$(D_Cmcdc)/date_Cmcdc.cc -o $(D_Cmcdc)/date_Cmcdc.o
