@@ -22,10 +22,12 @@ USER_DIR = .
 T_C0 = triangle_C0
 T_C1 = triangle_C1
 T_C2 = triangle_C2
+T_Cmcdc = triangle_Cmcdc
 
 D_C0 = date_C0
 D_C1 = date_C1
 D_C2 = date_C2
+D_Cmcdc = date_Cmcdc
 # Flags passed to the preprocessor.
 # Set Google Test's header directory as a system directory, such that
 # the compiler doesn't generate warnings in Google Test headers.
@@ -111,6 +113,16 @@ triangle_C2 : triangle.o triangle_C2.o gtest_main.a
 	$(T_C2)/triangle_C2.o gtest_main.a \
 	-o $(T_C2)/triangle_C2  -lgcov
 
+triangle_Cmcdc.o : $(T_Cmcdc)/triangle_Cmcdc.cc \
+                     $(USER_DIR)/triangle.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -ftest-coverage -fprofile-arcs  -c \
+	$(T_Cmcdc)/triangle_Cmcdc.cc -o $(T_Cmcdc)/triangle_Cmcdc.o
+
+triangle_Cmcdc : triangle.o triangle_Cmcdc.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $< \
+	$(T_Cmcdc)/triangle_Cmcdc.o gtest_main.a \
+	-o $(T_Cmcdc)/triangle_Cmcdc  -lgcov
+	
 date.o : $(USER_DIR)/date.cc $(USER_DIR)/date.h $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -ftest-coverage -fprofile-arcs -c  \
 	$(USER_DIR)/date.cc
@@ -140,7 +152,15 @@ date_C2.o : $(D_C2)/date_C2.cc \
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -ftest-coverage -fprofile-arcs -c  \
 	$(D_C2)/date_C2.cc -o $(D_C2)/date_C2.o
 
-
 date_C2 : date.o date_C2.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $< $(D_C2)/date_C2.o \
 	gtest_main.a -o $(D_C2)/date_C2 -lgcov
+
+date_Cmcdc.o : $(D_C2)/date_C2.cc \
+    $(USER_DIR)/date.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -ftest-coverage -fprofile-arcs -c  \
+	$(D_Cmcdc)/date_Cmcdc.cc -o $(D_Cmcdc)/date_Cmcdc.o
+
+date_Cmcdc : date.o date_Cmcdc.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $< $(D_Cmcdc)/date_Cmcdc.o \
+	gtest_main.a -o $(D_Cmcdc)/date_Cmcdc -lgcov
