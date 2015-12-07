@@ -112,7 +112,7 @@ triangle_C2 : triangle.o triangle_C2.o gtest_main.a
 	-o $(T_C2)/triangle_C2  -lgcov
 
 date.o : $(USER_DIR)/date.cc $(USER_DIR)/date.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c  \
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -ftest-coverage -fprofile-arcs -c  \
 	$(USER_DIR)/date.cc
 
 date_C0.o : $(D_C0)/date_C0.cc \
