@@ -2,7 +2,7 @@
 #include "gtest/gtest.h"
 #include "../triangle.h"
 
-TEST(TriangleType, Equivalence_Class_Test_Case){
+TEST(TriangleType,Cmcdc_Testcase){
 	//fix b, c change a
 	EXPECT_EQ("Isosceles", TriangleType(1, 195, 195 ));
 	EXPECT_EQ("Not a Triangle", TriangleType(400, 195, 195 ));
