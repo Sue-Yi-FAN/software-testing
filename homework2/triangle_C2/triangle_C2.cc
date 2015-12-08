@@ -2,7 +2,7 @@
 #include "gtest/gtest.h"
 #include "../triangle.h"
 
-TEST(TriangleType, Equivalence_Class_Test_Case){
+TEST(TriangleType, C2_Testcase){
 	EXPECT_EQ("Not a Triangle", TriangleType(0, 0, 0));
 	EXPECT_EQ("Equilateral", TriangleType(3, 3, 3 ));
 	EXPECT_EQ("Scalene", TriangleType(3, 4, 5));
