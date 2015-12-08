@@ -1,29 +1,29 @@
         -:    0:Source:triangle.cc
         -:    0:Graph:triangle.gcno
         -:    0:Data:triangle.gcda
-        -:    0:Runs:1
-        -:    0:Programs:1
+        -:    0:Runs:2
+        -:    0:Programs:2
         -:    1:#include "triangle.h"
-       15:    2:bool isATriangle(int a,  int b,  int c){
-       15:    3:	if ((a < b + c) && (b < a + c) && (c < a +b) 
-        9:    4:		&& (a > 0) && (b>0) && (c >0)) 
-        9:    5:		return true;
-        6:    6:	return false;
+       30:    2:bool isATriangle(int a,  int b,  int c){
+       30:    3:	if ((a < b + c) && (b < a + c) && (c < a +b) 
+       18:    4:		&& (a > 0) && (b>0) && (c >0)) 
+       18:    5:		return true;
+       12:    6:	return false;
         -:    7:}
         -:    8:
-       15:    9:string TriangleType(int a,  int b,  int c){
-       15:   10:if(isATriangle(a,  b,  c)){	
-        9:   11:	if (a > 200 || b > 200 || c > 200)
-        3:   12:		return "out of permitted range";
-        6:   13:	else if ((a == b) && (b == c))
-        2:   14:		return "Equilateral";
-        4:   15:    else if ((a != b) && (a != c) && (b != c))
-        1:   16:		return "Scalene";
+       30:    9:string TriangleType(int a,  int b,  int c){
+       30:   10:if(isATriangle(a,  b,  c)){	
+       18:   11:	if (a > 200 || b > 200 || c > 200)
+        6:   12:		return "out of permitted range";
+       12:   13:	else if ((a == b) && (b == c))
+        4:   14:		return "Equilateral";
+        8:   15:    else if ((a != b) && (a != c) && (b != c))
+        2:   16:		return "Scalene";
         -:   17:    
         -:   18:    else 
-        3:   19:    	return "Isosceles";
+        6:   19:    	return "Isosceles";
         -:   20: 
         -:   21: }else 
-        6:   22: 	return "Not a Triangle";
+       12:   22: 	return "Not a Triangle";
         -:   23:	
-        3:   24:}
+        6:   24:}

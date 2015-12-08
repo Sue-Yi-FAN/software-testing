@@ -1,8 +1,8 @@
         -:    0:Source:/usr/include/c++/4.8/bits/char_traits.h
         -:    0:Graph:date.gcno
         -:    0:Data:date.gcda
-        -:    0:Runs:1
-        -:    0:Programs:1
+        -:    0:Runs:4
+        -:    0:Programs:4
         -:    1:// Character Traits for use by standard string and iostream -*- C++ -*-
         -:    2:
         -:    3:// Copyright (C) 1997-2013 Free Software Foundation, Inc.

@@ -1,8 +1,8 @@
         -:    0:Source:/usr/include/c++/4.8/bits/move.h
         -:    0:Graph:date.gcno
         -:    0:Data:date.gcda
-        -:    0:Runs:1
-        -:    0:Programs:1
+        -:    0:Runs:4
+        -:    0:Programs:4
         -:    1:// Move, forward and identity for C++0x + swap -*- C++ -*-
         -:    2:
         -:    3:// Copyright (C) 2007-2013 Free Software Foundation, Inc.
@@ -103,8 +103,8 @@
         -:   98:  */
         -:   99:  template<typename _Tp>
         -:  100:    constexpr typename std::remove_reference<_Tp>::type&&
-       66:  101:    move(_Tp&& __t) noexcept
-       66:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+      300:  101:    move(_Tp&& __t) noexcept
+      300:  102:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
         -:  103:
         -:  104:
         -:  105:  template<typename _Tp>

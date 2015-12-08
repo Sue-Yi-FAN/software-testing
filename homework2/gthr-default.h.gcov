@@ -1,8 +1,8 @@
         -:    0:Source:/usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr-default.h
         -:    0:Graph:date.gcno
         -:    0:Data:date.gcda
-        -:    0:Runs:1
-        -:    0:Programs:1
+        -:    0:Runs:4
+        -:    0:Programs:4
         -:    1:/* Threads compatibility routines for libgcc2 and libobjc.  */
         -:    2:/* Compile this one with gcc.  */
         -:    3:/* Copyright (C) 1997-2013 Free Software Foundation, Inc.

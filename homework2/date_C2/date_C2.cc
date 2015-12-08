@@ -2,7 +2,7 @@
 #include "gtest/gtest.h"
 #include "../date.h"
 
-TEST(dataTest, C1_Testcase){
+TEST(dataTest, C2_Testcase){
 	EXPECT_EQ("Out of year range 1812-2012",  nextdate(1811, 1, 15));
 	EXPECT_EQ("Error day -1",  nextdate(1912, 1, -1));
 	EXPECT_EQ("Error day -1",  nextdate(1912, 4, -1));

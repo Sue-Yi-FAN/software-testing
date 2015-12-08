@@ -1,6 +1,6 @@
         -:    0:Source:../../../include/gtest/internal/gtest-port.h
-        -:    0:Graph:triangle_C1/triangle_C1.gcno
-        -:    0:Data:triangle_C1/triangle_C1.gcda
+        -:    0:Graph:date_Cmcdc/date_Cmcdc.gcno
+        -:    0:Data:date_Cmcdc/date_Cmcdc.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// Copyright 2005, Google Inc.
@@ -897,7 +897,7 @@
         -:  892:  typedef T element_type;
         -:  893:
         -:  894:  explicit scoped_ptr(T* p = NULL) : ptr_(p) {}
-       47:  895:  ~scoped_ptr() { reset(); }
+       56:  895:  ~scoped_ptr() { reset(); }
         -:  896:
         -:  897:  T& operator*() const { return *ptr_; }
     #####:  898:  T* operator->() const { return ptr_; }
@@ -909,14 +909,14 @@
         -:  904:    return ptr;
         -:  905:  }
         -:  906:
-       47:  907:  void reset(T* p = NULL) {
-       47:  908:    if (p != ptr_) {
+       56:  907:  void reset(T* p = NULL) {
+       56:  908:    if (p != ptr_) {
        42:  909:      if (IsTrue(sizeof(T) > 0)) {  // Makes sure T is a complete type.
        42:  910:        delete ptr_;
         -:  911:      }
        42:  912:      ptr_ = p;
         -:  913:    }
-       47:  914:  }
+       56:  914:  }
         -:  915:
         -:  916: private:
         -:  917:  T* ptr_;

@@ -1,89 +1,89 @@
         -:    0:Source:date.cc
         -:    0:Graph:date.gcno
         -:    0:Data:date.gcda
-        -:    0:Runs:1
-        -:    0:Programs:1
+        -:    0:Runs:4
+        -:    0:Programs:4
         -:    1:#include "date.h"
         -:    2:
-       22:    3:string nextdate(int year,  int month,  int day){
-       22:    4:	int tomorrowDay = 0;
-       22:    5:	int tomorrowMonth = month;
-       22:    6:	int tomorrowYear = year;
-       22:    7:	string ans = "2";
-       22:    8:	if(year < 1812 || year > 2012)
-        2:    9:		return "Out of year range 1812-2012";
+       89:    3:string nextdate(int year,  int month,  int day){
+       89:    4:	int tomorrowDay = 0;
+       89:    5:	int tomorrowMonth = month;
+       89:    6:	int tomorrowYear = year;
+       89:    7:	string ans = "2";
+       89:    8:	if(year < 1812 || year > 2012)
+        4:    9:		return "Out of year range 1812-2012";
         -:   10:	else{
-       20:   11:		switch(month)
+       85:   11:		switch(month)
         -:   12:		{
         -:   13:			case 1: case 3: case 5: case 7: case 8: case 10:
-        4:   14:				if(day < 31 && day > 0){
-        1:   15:					tomorrowDay = day + 1;
+       13:   14:				if(day < 31 && day > 0){
+        3:   15:					tomorrowDay = day + 1;
         -:   16:				}
-        3:   17:				else if(day <= 0 || day > 31){
-        2:   18:					return "Error day " + to_string(day);
+       10:   17:				else if(day <= 0 || day > 31){
+        6:   18:					return "Error day " + to_string(day);
         -:   19:				}
         -:   20:				else{
-        1:   21:					tomorrowDay = 1;
-        1:   22:					tomorrowMonth = month + 1;
+        4:   21:					tomorrowDay = 1;
+        4:   22:					tomorrowMonth = month + 1;
         -:   23:				}
-        2:   24:				break;
+        7:   24:				break;
         -:   25:			case 4: case 6: case 9: case 11:
-        4:   26:				if(day < 30 && day > 0){
-        1:   27:					tomorrowDay = day + 1;
+       24:   26:				if(day < 30 && day > 0){
+        8:   27:					tomorrowDay = day + 1;
         -:   28:				}
-        3:   29:				else if(day <= 0 || day > 30){
-        2:   30:					return "Error day " + to_string(day);
+       16:   29:				else if(day <= 0 || day > 30){
+       12:   30:					return "Error day " + to_string(day);
         -:   31:				}
         -:   32:				else{
-        1:   33:					tomorrowDay = 1 ;
-        1:   34:					tomorrowMonth = month + 1;
+        4:   33:					tomorrowDay = 1 ;
+        4:   34:					tomorrowMonth = month + 1;
         -:   35:				}
-        2:   36:				break; 
+       12:   36:				break; 
         -:   37:			case 2:
-        7:   38:				if(day < 28 && day > 0){
-        1:   39:					tomorrowDay = day + 1;
+       31:   38:				if(day < 28 && day > 0){
+        3:   39:					tomorrowDay = day + 1;
         -:   40:				}
-        6:   41:				else if(day == 28){
-        2:   42:					if(year%400==0||(year%4==0&&year%100!=0)){
-        1:   43:						tomorrowDay =day + 1;
+       28:   41:				else if(day == 28){
+       12:   42:					if(year%400==0||(year%4==0&&year%100!=0)){
+        8:   43:						tomorrowDay =day + 1;
         -:   44:					}
         -:   45:					else{
-        1:   46:						tomorrowDay = 1;
-        1:   47:						tomorrowMonth += 1;
+        4:   46:						tomorrowDay = 1;
+        4:   47:						tomorrowMonth += 1;
         -:   48:					}
         -:   49:				}
-        4:   50:				else if(day == 29){
-        2:   51:					if(year%400==0||(year%4==0&&year%100!=0)){
-        1:   52:						tomorrowDay = 1;
-        1:   53:						tomorrowMonth = 3;
+       16:   50:				else if(day == 29){
+        9:   51:					if(year%400==0||(year%4==0&&year%100!=0)){
+        6:   52:						tomorrowDay = 1;
+        6:   53:						tomorrowMonth = 3;
         -:   54:					}
         -:   55:					else{
-        1:   56:					return "Cannot have Feb " + to_string(day);
+        3:   56:					return "Cannot have Feb " + to_string(day);
         -:   57:					}
         -:   58:				}
         -:   59:				else{
-        2:   60:					return "Error day " + to_string(day);
+        7:   60:					return "Error day " + to_string(day);
         -:   61:				}
-        4:   62:				break;
+       21:   62:				break;
         -:   63:			case 12:
-        4:   64:				if(day < 31 && day > 0){
-        1:   65:					tomorrowDay = day + 1;
+       13:   64:				if(day < 31 && day > 0){
+        3:   65:					tomorrowDay = day + 1;
         -:   66:				}
-        3:   67:				else if(day <= 0 || day > 31){
-        2:   68:					return "Error day " + to_string(day);
+       10:   67:				else if(day <= 0 || day > 31){
+        6:   68:					return "Error day " + to_string(day);
         -:   69:				}
         -:   70:				else{
-        1:   71:					tomorrowDay = 1;
-        1:   72:					tomorrowMonth = 1;
-        1:   73:					tomorrowYear += 1;
+        4:   71:					tomorrowDay = 1;
+        4:   72:					tomorrowMonth = 1;
+        4:   73:					tomorrowYear += 1;
         -:   74:				}
-        2:   75:				break;
+        7:   75:				break;
         -:   76:			default:
-        1:   77:				return "Error month " + to_string(month);
+        4:   77:				return "Error month " + to_string(month);
         -:   78:		}
         -:   79:	}
-       20:   80:	ans =to_string(tomorrowYear)+'/'+
-       40:   81:	to_string(tomorrowMonth)+'/'+
-       10:   82:	to_string(tomorrowDay);
-       10:   83:	return ans;
-        3:   84:}
+       94:   80:	ans =to_string(tomorrowYear)+'/'+
+      188:   81:	to_string(tomorrowMonth)+'/'+
+       47:   82:	to_string(tomorrowDay);
+       47:   83:	return ans;
+       12:   84:}
